@@ -104,6 +104,13 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    opts = {}
+  },
+  {
     'kylechui/nvim-surround',
     event = "VeryLazy",
     opts = {}
@@ -356,7 +363,8 @@ require('lazy').setup({
         capabilities = capabilities
       })
       vim.lsp.config('rust_analyzer', {
-        capabilities = capabilities
+        capabilities = capabilities,
+        cmd = { 'rust_analyzer' }
       })
 
 
